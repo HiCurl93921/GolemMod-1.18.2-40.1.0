@@ -4,7 +4,7 @@ license="All rights reserved"
 [[mods]] #mandatory
 modId="golemmod" #mandatory
 version="${file.jarVersion}" #mandatory
-displayName="Red Tree Mod" #mandatory
+displayName="Golem Mod" #mandatory
 logoFile="golem_mod_icon.png" #optional
 credits="Thanks for this example mod goes to Java" #optional
 authors="Love, Cheese and small house plants" #optional

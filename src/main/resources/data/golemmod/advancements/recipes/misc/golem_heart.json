@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "golemmod:golem_heart"
+    ]
+  },
+  "criteria": {
+    "has_golem_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "golemmod:golem_core"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "golemmod:golem_heart"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_golem_core",
+      "has_the_recipe"
+    ]
+  ]
+}

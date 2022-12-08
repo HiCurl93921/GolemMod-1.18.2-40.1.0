@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "golemmod:golem_core"
+    ]
+  },
+  "criteria": {
+    "has_golem_core_sources": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:poppy"
+          },
+          {
+            "item": "minecraft:quartz"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "golemmod:golem_core"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_golem_core_sources",
+      "has_the_recipe"
+    ]
+  ]
+}
