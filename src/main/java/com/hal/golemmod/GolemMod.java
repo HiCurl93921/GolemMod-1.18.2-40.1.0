@@ -1,7 +1,7 @@
 package com.hal.golemmod;
 
-import com.hal.items.CreativeTab;
-import com.hal.items.Items;
+import com.hal.golemmod.items.CreativeTab;
+import com.hal.golemmod.items.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

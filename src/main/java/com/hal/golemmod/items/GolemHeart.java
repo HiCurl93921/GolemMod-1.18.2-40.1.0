@@ -1,4 +1,4 @@
-package com.hal.items;
+package com.hal.golemmod.items;
 
 import net.minecraft.world.item.Item;
 
