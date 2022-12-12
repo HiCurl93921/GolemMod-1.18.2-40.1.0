@@ -7,15 +7,17 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Supplier;
+
 public class Items {
     private static final DeferredRegister<Item> ITEMS
             = DeferredRegister.create(ForgeRegistries.ITEMS, GolemMod.MOD_ID);
 
     /**
-     * ゴーレムハート
+     * ゴーレムコア
      */
     public static final RegistryObject<Item> GOLEM_CORE
-            = ITEMS.register("golem_core",
+            = registerItem("golem_core",
             () -> new GolemCore(new Item.Properties().tab(GolemMod.TAB)));
 
 
@@ -23,14 +25,18 @@ public class Items {
      * ゴーレムハート
      */
     public static final RegistryObject<Item> GOLEM_HEART
-            = ITEMS.register("golem_heart",
+            = registerItem("golem_heart",
             () -> new GolemHeart(new Item.Properties().tab(GolemMod.TAB)));
 
+    public static RegistryObject<Item> registerItem(String name, Supplier<Item> initializer) {
+        return ITEMS.register(name, initializer);
+    }
+
     /**
-     * アイテム登録
+     * アイテムをイベントバスに登録
      * @param eventBus MODイベントバス
      */
-    public static void register(IEventBus eventBus) {
+    public static void registerItems(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
 }

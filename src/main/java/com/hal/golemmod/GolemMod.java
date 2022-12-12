@@ -15,6 +15,6 @@ public class GolemMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // アイテム登録
-        Items.register(modEventBus);
+        Items.registerItems(modEventBus);
     }
 }
