@@ -11,6 +11,9 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeSpawnEggItem;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -19,8 +22,8 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = GolemMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public final class EntityTypes {
-    public static final DeferredRegister<EntityType<?>> ENTITIES
+public final class GolemEntitiesInit {
+    private static final DeferredRegister<EntityType<?>> ENTITIES
             = DeferredRegister.create(ForgeRegistries.ENTITIES, GolemMod.MOD_ID);
 
     public static final RegistryObject<EntityType<WoodGolem>> WOOD_GOLEM
@@ -30,6 +33,15 @@ public final class EntityTypes {
                     MobCategory.MISC)
                     .sized(1.4F, 2.7F)
                     .clientTrackingRange(10));
+
+    public static void registerEntities(IEventBus modBus) {
+        ENTITIES.register(modBus);
+    }
+
+    @SubscribeEvent
+    public static void addEntityAttributes(EntityAttributeCreationEvent event) {
+        event.put(WOOD_GOLEM.get(), WoodGolem.createAttributes().build());
+    }
 
     private static <T extends Entity> RegistryObject<EntityType<T>> register(String name, Supplier<EntityType.Builder<T>> builder) {
         ResourceLocation location = new ResourceLocation(GolemMod.MOD_ID, name);

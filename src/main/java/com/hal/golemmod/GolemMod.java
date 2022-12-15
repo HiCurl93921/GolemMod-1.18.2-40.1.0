@@ -1,5 +1,6 @@
 package com.hal.golemmod;
 
+import com.hal.golemmod.entities.GolemEntitiesInit;
 import com.hal.golemmod.items.CreativeTab;
 import com.hal.golemmod.items.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -16,5 +17,8 @@ public class GolemMod {
 
         // アイテム登録
         Items.registerItems(modEventBus);
+
+        // エンティティ登録
+        GolemEntitiesInit.registerEntities(modEventBus);
     }
 }
